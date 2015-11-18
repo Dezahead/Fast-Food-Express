@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:clickable="true">
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#806efc2b"
+        android:textAlignment="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/sendbutton"
+            android:fontFamily="sans-serif-light"
+            android:background="@drawable/buttonlayout"
+            android:height="11dp"
+            android:width="50dp"
+            android:minHeight="35dp"
+            android:minWidth="300dp"
+            android:layout_marginTop="38dp"
+            android:layout_below="@+id/forgotpassword"
+            android:layout_alignStart="@+id/passwordField"
+            android:onClick="selectRestaurant"
+            android:clickable="true" />
+
+
+        <EditText
+            android:fontFamily="sans-serif-light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Emailaddressfield"
+            android:text= "  Email Address"
+            android:background="@drawable/textfield"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="208dp"
+            android:minHeight="30dp"
+            android:minWidth="300dp"
+            android:textAlignment="center" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordField"
+            android:fontFamily="sans-serif-light"
+            android:text="  Password"
+            android:background="@drawable/textfield"
+            android:minHeight="30dp"
+            android:minWidth="300dp"
+            android:textAlignment="center"
+            android:singleLine="false"
+            android:layout_below="@+id/Emailaddressfield"
+            android:layout_alignStart="@+id/Emailaddressfield"
+            android:layout_marginTop="36dp" />
+
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     Fast-Food Express"
+            android:id="@+id/bannerText"
+            android:layout_alignParentTop="true"
+            android:textSize="38dp"
+            android:textIsSelectable="false"
+            android:background="#ff575957"
+            android:layout_alignParentEnd="true"
+            android:minHeight="52dp"
+            android:minWidth="300dp"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:textColor="#fa040304" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/bannerText"
+            android:layout_alignEnd="@+id/Emailaddressfield"
+            android:layout_marginEnd="56dp"
+            android:layout_marginTop="62dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot your password? Click here."
+            android:fontFamily="sans-serif-thin"
+            android:id="@+id/forgotpassword"
+            android:layout_below="@+id/passwordField"
+            android:layout_centerHorizontal="true"
+            android:textColor="#f5121213"
+            android:clickable="true"
+            android:onClick="forgotPassword"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don&apos;t have an account? Create an account here."
+            android:fontFamily="sans-serif-thin"
+            android:id="@+id/registertext"
+            android:textColor="#f5121213"
+            android:layout_marginTop="74dp"
+            android:layout_below="@+id/sendbutton"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create An Account"
+            android:id="@+id/createacctbutton"
+            android:fontFamily="sans-serif-light"
+            android:background="@drawable/buttonlayout"
+            android:height="11dp"
+            android:width="50dp"
+            android:minHeight="35dp"
+            android:minWidth="300dp"
+            android:clickable="true"
+            android:onClick="createAccount"
+            android:layout_below="@+id/registertext"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let&apos;s get Started!"
+            android:id="@+id/Setuptext"
+            android:textSize="50dp"
+            android:textIsSelectable="false"
+            android:textAlignment="center"
+            android:textColor="#fa040304"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</ScrollView>

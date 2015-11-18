@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#806efc2b"
+        android:textAlignment="center">
+
+
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     Fast-Food Express"
+            android:id="@+id/bannerText"
+            android:layout_alignParentTop="true"
+            android:textSize="38dp"
+            android:textIsSelectable="false"
+            android:background="#ff575957"
+            android:layout_alignParentEnd="true"
+            android:minHeight="52dp"
+            android:minWidth="300dp"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:textColor="#fa040304" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/bannerText"
+            android:layout_marginEnd="56dp"
+            android:layout_marginTop="62dp" />
+
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Confirmation"
+            android:id="@+id/bigordersumm"
+            android:textSize="45dp"
+            android:textIsSelectable="false"
+            android:textAlignment="center"
+            android:textColor="#fa040304"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thank you for your order! Your order has been been placed."
+            android:id="@+id/summaryinstruct"
+            android:maxLines="2"
+            android:layout_marginBottom="37dp"
+            android:layout_above="@+id/placeorderbuttonbutton"
+            android:layout_centerHorizontal="true" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place Order"
+            android:id="@+id/placeorderbuttonbutton"
+            android:fontFamily="sans-serif-light"
+            android:background="@drawable/buttonlayout"
+            android:height="11dp"
+            android:width="100dp"
+            android:layout_marginBottom="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:onClick="selectRestaurant" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/check"
+            android:id="@+id/imageView2"
+            android:minWidth="100dp"
+            android:minHeight="100dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</ScrollView>
