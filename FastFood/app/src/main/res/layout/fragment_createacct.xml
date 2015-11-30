@@ -79,7 +79,8 @@
             android:textAlignment="center"
             android:layout_marginTop="30dp"
             android:layout_below="@+id/bigcreateaccntext"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@+id/bigcreateaccntext"/>
 
         <EditText
             android:fontFamily="sans-serif-light"
@@ -93,7 +94,8 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/fname"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@+id/fname"/>
 
         <EditText
             android:fontFamily="sans-serif-light"
@@ -106,7 +108,10 @@
             android:minWidth="300dp"
             android:textAlignment="center"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/lname"
+            android:layout_alignStart="@+id/lname"/>
 
         <EditText
             android:fontFamily="sans-serif-light"
@@ -120,7 +125,8 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/Emailaddressfield2"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@+id/Emailaddressfield2"/>
 
     </RelativeLayout>
 </ScrollView>

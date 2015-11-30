@@ -1,3 +1,6 @@
+//This class inflates the confirmation fragment.  The confirmation fragment shows the user
+// a confirmation screen after they order and pay for their food -DJ
+
 package com.dcv3.fastfood.fastfood.Fragments;
 
 import android.app.Fragment;

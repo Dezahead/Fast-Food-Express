@@ -5,6 +5,8 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
+
+    //Background
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
@@ -13,6 +15,7 @@
         android:textAlignment="center">
 
 
+        //Text to create banner
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
@@ -30,40 +33,30 @@
             android:textAlignment="center"
             android:textColor="#fa040304" />
 
+        //Background image to create banner
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:id="@+id/bannerbg"
             android:layout_below="@+id/bannerText"
             android:layout_marginEnd="56dp"
             android:layout_marginTop="62dp" />
 
+        //Screen Title text
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Order Summary"
-            android:id="@+id/bigordersumm"
+            android:text="Pending Orders"
+            android:id="@+id/bigcurrentorders"
             android:textSize="50dp"
             android:textIsSelectable="false"
             android:textAlignment="center"
             android:textColor="#fa040304"
-            android:layout_alignTop="@+id/imageView"
+            android:layout_alignTop="@+id/bannerbg"
             android:layout_centerHorizontal="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Please review your order and proceed to checkout to complete your order."
-            android:id="@+id/summaryinstruct"
-            android:textAlignment="center"
-            android:maxLines="2"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/bigordersumm"
-            android:layout_centerHorizontal="true"
-            />
-
+        //Text to view order1
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
@@ -73,22 +66,22 @@
             android:textSize="38dp"
             android:textIsSelectable="false"
             android:background="#ff575957"
-            android:minHeight="30dp"
+            android:minHeight="52dp"
             android:minWidth="300dp"
             android:gravity="left"
             android:textColor="#fa040304"
             android:checked="true"
-            android:layout_below="@+id/summaryinstruct"
+            android:layout_above="@+id/details1"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="26dp"
             android:layout_alignParentEnd="true" />
 
+
+        //Text to view restaurant of order1
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Tartar Sauce"
             android:id="@+id/details1"
             android:textSize="20dp"
             android:textIsSelectable="false"
@@ -100,44 +93,95 @@
             android:checked="true"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:text="SR Collins Seafood" />
 
 
+        //Inserts divider
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:background="#c0c0c0"
+            android:layout_above="@+id/omwbutton"
+            android:layout_alignParentStart="true"
+            android:id="@+id/divider1" />
+
+
+        //On the way button for order1
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Place Order"
-            android:id="@+id/placeorderbuttonbutton"
+            android:text="On my way!"
+            android:id="@+id/omwbutton"
             android:fontFamily="sans-serif-light"
             android:background="@drawable/buttonlayout"
             android:height="11dp"
             android:width="50dp"
             android:minHeight="35dp"
             android:minWidth="100dp"
-            android:layout_marginTop="39dp"
-            android:layout_below="@+id/item1"
-            android:layout_alignEnd="@+id/bigordersumm"
+            android:layout_below="@+id/details1"
+            android:layout_alignEnd="@+id/bigcurrentorders"
+            android:layout_marginEnd="-15dp"
+            android:layout_marginTop="-60dp"
             android:clickable="true"
-            android:onClick="confirmation"
-            />
+            android:onClick="pendorstart"/>
 
+        //order2 text title
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fried Fish"
+            android:id="@+id/textView"
+            android:textSize="38dp"
+            android:textIsSelectable="false"
+            android:background="#ff575957"
+            android:minHeight="52dp"
+            android:minWidth="300dp"
+            android:gravity="left"
+            android:textColor="#fa040304"
+            android:checked="true"
+            android:layout_below="@+id/details1"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        //order2 restaurant text
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="SR Collins Seafood"
+            android:id="@+id/details2"
+            android:textSize="20dp"
+            android:textIsSelectable="false"
+            android:background="#ff575957"
+            android:minHeight="30dp"
+            android:minWidth="100dp"
+            android:gravity="left"
+            android:textColor="#fa040304"
+            android:checked="true"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        //On my way button for order2
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/backbutton"
+            android:text="On my way!"
+            android:id="@+id/omwbutton2"
             android:fontFamily="sans-serif-light"
             android:background="@drawable/buttonlayout"
             android:height="11dp"
             android:width="50dp"
             android:minHeight="35dp"
             android:minWidth="100dp"
-            android:layout_alignTop="@+id/placeorderbuttonbutton"
-            android:layout_alignStart="@+id/bigordersumm"
+            android:layout_above="@+id/details2"
+            android:layout_alignStart="@+id/omwbutton"
             android:clickable="true"
-            android:onClick="viewMenu"
-            android:layout_below="@+id/item1"
-            />
+            android:onClick="pendorstart"/>
+
 
     </RelativeLayout>
 </ScrollView>
