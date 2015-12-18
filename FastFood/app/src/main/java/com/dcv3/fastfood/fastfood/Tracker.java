@@ -1,7 +1,7 @@
 package com.dcv3.fastfood.fastfood;
 
+import android.content.Context;
 import android.location.Location;
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -12,15 +12,14 @@ import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-
-import java.text.DateFormat;
-import java.util.Date;
+import com.google.android.gms.location.LocationListener;
 
 /**
  * Created by dezereljones on 12/17/15.
  */
 public class Tracker implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
+    private Context myContext; // assign a context!!!
     private static final String TAG = "Tracker";
     LocationRequest myLocationRequest;
     private static final long INTERVAL = 1000 * 5; //5 seconds converted to milliseconds
@@ -42,18 +41,7 @@ public class Tracker implements LocationListener, GoogleApiClient.ConnectionCall
 
     }
 
-    @Override
-    public void onProviderDisabled (String provider){
-    }
 
-
-    @Override
-    public void onStatusChanged (String provider, int status, Bundle extras){
-    }
-
-    @Override
-    public void onProviderEnabled (String provider){
-    }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
@@ -79,7 +67,7 @@ public class Tracker implements LocationListener, GoogleApiClient.ConnectionCall
 
         createLocationRequest();
         myGoogleApiClient.connect();
-        myGoogleApiClient = new GoogleApiClient.Builder(this)
+        myGoogleApiClient = new GoogleApiClient.Builder(myContext)
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -90,11 +78,10 @@ public class Tracker implements LocationListener, GoogleApiClient.ConnectionCall
     }
 
     private boolean isGooglePlayServicesAvailable() {
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(myContext);
         if (ConnectionResult.SUCCESS == status) {
             return true;
         } else {
-            GooglePlayServicesUtil.getErrorDialog(status, this, 0).show();
             return false;
         }
     }
