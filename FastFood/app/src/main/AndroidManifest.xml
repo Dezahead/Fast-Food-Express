@@ -2,6 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dcv3.fastfood.fastfood" >
 
+    //allows app to access internet
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    //allow app to access a precise location
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    //allows app to write to external storage
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    //allows app to access information about networks
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    allows app to access google web based services(google map)
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

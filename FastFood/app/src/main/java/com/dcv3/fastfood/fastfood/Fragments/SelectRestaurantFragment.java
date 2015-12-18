@@ -21,4 +21,5 @@ public class SelectRestaurantFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_selectrestaurant, container, false);
     }
+
 }
