@@ -22,6 +22,7 @@ import com.dcv3.fastfood.fastfood.Fragments.PendorStartActivityFragment;
 import com.dcv3.fastfood.fastfood.Fragments.RestaurantMenuFragment;
 import com.dcv3.fastfood.fastfood.Fragments.SelectRestaurantFragment;
 
+import com.parse.ParseAnalytics;
 
 public class MainActivity extends ActionBarActivity {
     FragmentManager fm;
