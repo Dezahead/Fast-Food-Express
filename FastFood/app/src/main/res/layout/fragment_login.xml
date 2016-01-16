@@ -118,7 +118,6 @@
             android:minHeight="35dp"
             android:minWidth="300dp"
             android:clickable="true"
-            android:onClick="createAccount"
             android:layout_below="@+id/registertext"
             android:layout_centerHorizontal="true" />
 

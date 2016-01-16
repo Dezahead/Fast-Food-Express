@@ -26,6 +26,7 @@ public class LoginActivityFragment extends Fragment {
     private EditText emailAddressET;
     private EditText passWordET;
     private Button loginButton;
+    private Button createAcctButton;
 
 
     //DEZA
@@ -35,9 +36,10 @@ public class LoginActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_login, container, false);
 
-        emailAddressET = (EditText)getView().findViewById(R.id.Emailaddressfield);
-        passWordET = (EditText)getView().findViewById(R.id.passwordField);
-        loginButton = (Button)getView().findViewById(R.id.sendbutton);
+        emailAddressET = (EditText)v.findViewById(R.id.Emailaddressfield);
+        passWordET = (EditText)v.findViewById(R.id.passwordField);
+        loginButton = (Button)v.findViewById(R.id.sendbutton);
+        createAcctButton = (Button)v.findViewById(R.id.createacctbutton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -45,7 +47,16 @@ public class LoginActivityFragment extends Fragment {
             }
         });
 
+        createAcctButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                createAcct();
+            }
+        });
         return v;
+    }
+
+    private void createAcct(){
+        switchFragment(new CreateAccountFragment());
     }
 
     private void login(){

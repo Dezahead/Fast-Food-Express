@@ -1,4 +1,8 @@
 //The MainActivity file manages the switching between all fragments-DJ
+/*
+Bug occurred after I tried to initialize the Parse session and register a subclass
+check Application.java
+ */
 
 package com.dcv3.fastfood.fastfood;
 
@@ -12,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.dcv3.fastfood.fastfood.Fragments.ConfirmationFragment;
-import com.dcv3.fastfood.fastfood.Fragments.CreateAccountFragment;
 import com.dcv3.fastfood.fastfood.Fragments.CustomizationFragment;
 import com.dcv3.fastfood.fastfood.Fragments.ForgotPasswordFragment;
 import com.dcv3.fastfood.fastfood.Fragments.LoginActivityFragment;
@@ -22,7 +25,7 @@ import com.dcv3.fastfood.fastfood.Fragments.PendorStartActivityFragment;
 import com.dcv3.fastfood.fastfood.Fragments.RestaurantMenuFragment;
 import com.dcv3.fastfood.fastfood.Fragments.SelectRestaurantFragment;
 
-import com.parse.ParseAnalytics;
+
 
 public class MainActivity extends ActionBarActivity {
     FragmentManager fm;
@@ -87,10 +90,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void confirmation(View view){
         switchFragment(new ConfirmationFragment());
-    }
-
-    public void createAccount(View view){
-        switchFragment(new CreateAccountFragment());
     }
 
     public void forgotPassword(View view){

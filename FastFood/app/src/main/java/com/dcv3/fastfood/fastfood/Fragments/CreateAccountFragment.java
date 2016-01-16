@@ -44,11 +44,11 @@ public class CreateAccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_createacct, container, false);
 
-        firstNameET = (EditText) getView().findViewById(R.id.fname);
-        lastNameET = (EditText)getView().findViewById(R.id.lname);
-        emailAddressET = (EditText)getView().findViewById(R.id.Emailaddressfield2);
-        passWordET = (EditText)getView().findViewById(R.id.passwordField2);
-        createAcctButton = (Button)getView().findViewById(R.id.createacctbutton);
+        firstNameET = (EditText)v.findViewById(R.id.fname);
+        lastNameET = (EditText)v.findViewById(R.id.lname);
+        emailAddressET = (EditText)v.findViewById(R.id.Emailaddressfield2);
+        passWordET = (EditText)v.findViewById(R.id.passwordField2);
+        createAcctButton = (Button)v.findViewById(R.id.createacctbutton);
 
         createAcctButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -126,7 +126,7 @@ public class CreateAccountFragment extends Fragment {
                 dialog.dismiss();
                 if (e != null) {
                     // Show the error message
-                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                   Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                 } else {
                     //changes the fragment view to the login screen-DJ
                     switchFragment(new LoginActivityFragment());
