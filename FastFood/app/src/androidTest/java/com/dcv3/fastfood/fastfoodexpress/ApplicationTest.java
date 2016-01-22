@@ -1,4 +1,4 @@
-package com.dcv3.fastfood.fastfood;
+package com.dcv3.fastfood.fastfoodexpress;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

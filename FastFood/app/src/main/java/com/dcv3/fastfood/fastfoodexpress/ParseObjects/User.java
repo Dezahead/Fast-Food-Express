@@ -1,4 +1,4 @@
-package com.dcv3.fastfood.fastfood;
+package com.dcv3.fastfood.fastfoodexpress.ParseObjects;
 
 import com.parse.ParseObject;
 

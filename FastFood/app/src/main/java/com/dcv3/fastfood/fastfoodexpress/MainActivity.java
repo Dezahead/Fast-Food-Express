@@ -4,7 +4,7 @@ Bug occurred after I tried to initialize the Parse session and register a subcla
 check Application.java
  */
 
-package com.dcv3.fastfood.fastfood;
+package com.dcv3.fastfood.fastfoodexpress;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -15,16 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.dcv3.fastfood.fastfood.Fragments.ConfirmationFragment;
-import com.dcv3.fastfood.fastfood.Fragments.CustomizationFragment;
-import com.dcv3.fastfood.fastfood.Fragments.ForgotPasswordFragment;
-import com.dcv3.fastfood.fastfood.Fragments.LoginActivityFragment;
-import com.dcv3.fastfood.fastfood.Fragments.OrderSummaryFragment;
-import com.dcv3.fastfood.fastfood.Fragments.PendingActivityFragment;
-import com.dcv3.fastfood.fastfood.Fragments.PendorStartActivityFragment;
-import com.dcv3.fastfood.fastfood.Fragments.RestaurantMenuFragment;
-import com.dcv3.fastfood.fastfood.Fragments.SelectRestaurantFragment;
-
+import com.dcv3.fastfood.fastfoodexpress.Fragments.ConfirmationFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.CustomizationFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.ForgotPasswordFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.LoginActivityFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.OrderSummaryFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.PendingActivityFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.PendorStartActivityFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.RestaurantMenuFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.SelectRestaurantFragment;
+import com.parse.ParseAnalytics;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,6 +35,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         //changes the fragment view to the login screen-DJ
         switchFragment(new LoginActivityFragment());

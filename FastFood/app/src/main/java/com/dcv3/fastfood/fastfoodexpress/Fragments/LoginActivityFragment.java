@@ -1,4 +1,4 @@
-package com.dcv3.fastfood.fastfood.Fragments;
+package com.dcv3.fastfood.fastfoodexpress.Fragments;
 
 
 import android.app.Fragment;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.dcv3.fastfood.fastfood.R;
+import com.dcv3.fastfood.fastfoodexpress.R;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;

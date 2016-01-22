@@ -1,6 +1,6 @@
 //This class inflates the customization screen.  It allows the user to customize the food
 //that they selected from the menu -DJ
-package com.dcv3.fastfood.fastfood.Fragments;
+package com.dcv3.fastfood.fastfoodexpress.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dcv3.fastfood.fastfood.R;
+import com.dcv3.fastfood.fastfoodexpress.R;
 
 /**
  * Created by dezereljones on 11/17/15.

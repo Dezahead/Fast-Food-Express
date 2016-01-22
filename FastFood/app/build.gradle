@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 'Google Inc.:Google APIs:22'
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.dcv3.fastfood.fastfood"
-        minSdkVersion 19
-        targetSdkVersion 22
+        minSdkVersion 21
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        //multiDexEnabled true
     }
     buildTypes {
         release {
@@ -21,8 +22,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.google.android.gms:play-services:7.0.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:22.+'
+    compile 'com.android.support:design:22.+'
+    compile 'com.parse.bolts:bolts-tasks:1.4.0'
     compile 'com.parse:parse-android:1.12.0'
-    compile 'com.parse.bolts:bolts-tasks:1.3.0'
 }

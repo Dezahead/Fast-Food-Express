@@ -1,5 +1,5 @@
 //This class requests the restaurant information from the database
-package com.dcv3.fastfood.fastfood;
+package com.dcv3.fastfood.fastfoodexpress.ParseObjects;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

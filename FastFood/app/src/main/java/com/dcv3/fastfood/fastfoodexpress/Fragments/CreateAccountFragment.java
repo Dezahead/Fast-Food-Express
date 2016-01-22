@@ -3,7 +3,7 @@ This class inflates the create account screen and allows first time
 users to create an account when they first download the app -DJ
 */
 
-package com.dcv3.fastfood.fastfood.Fragments;
+package com.dcv3.fastfood.fastfoodexpress.Fragments;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.dcv3.fastfood.fastfood.R;
+import com.dcv3.fastfood.fastfoodexpress.R;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -115,6 +115,7 @@ public class CreateAccountFragment extends Fragment {
         ParseUser user = new ParseUser();
         user.setUsername(emailAddress);
         user.setPassword(password);
+        user.setEmail(emailAddress);
         //DEZA FIGURE OUT HOW TO ADD FIRST NAME AND LAST NAME to the database
         //user.put(FirstName, firstName);
         //user.put(LastName, lastName);
