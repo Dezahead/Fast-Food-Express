@@ -3,38 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true"
-    android:clickable="true">
+    android:fillViewport="true">
+
+
+    //Background
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#806efc2b"
-        android:textAlignment="center">
+        android:layout_height="wrap_content">
+
+
+
+
+        //Button to allow user to login
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
             android:id="@+id/sendbutton"
             android:fontFamily="sans-serif-light"
-            android:background="@drawable/buttonlayout"
-            android:height="11dp"
-            android:width="50dp"
+            android:background="#4d1b1a1a"
             android:minHeight="35dp"
             android:minWidth="300dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="89dp"
+            android:onClick="selectRestaurant"
+            android:clickable="true"
             android:layout_below="@+id/forgotpassword"
-            android:layout_alignStart="@+id/passwordField"
-            android:clickable="true" />
+            android:layout_alignStart="@+id/createacctbutton" />
 
-
+        //Text field to enter email address
         <EditText
             android:fontFamily="sans-serif-light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Emailaddressfield"
             android:text= "  Email Address"
-            android:background="@drawable/textfield"
+            android:inputType="textEmailAddress"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="208dp"
@@ -42,13 +46,14 @@
             android:minWidth="300dp"
             android:textAlignment="center" />
 
+
+        //Text field to enter password
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/passwordField"
             android:fontFamily="sans-serif-light"
             android:text="  Password"
-            android:background="@drawable/textfield"
             android:minHeight="30dp"
             android:minWidth="300dp"
             android:textAlignment="center"
@@ -57,32 +62,12 @@
             android:layout_alignStart="@+id/Emailaddressfield"
             android:layout_marginTop="36dp" />
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Fast-Food Express"
-            android:id="@+id/bannerText"
-            android:layout_alignParentTop="true"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:layout_alignParentEnd="true"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center"
-            android:textColor="#fa040304" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_below="@+id/bannerText"
-            android:layout_alignEnd="@+id/Emailaddressfield"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="62dp" />
 
+
+
+
+        //Forgot password link
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,9 +77,9 @@
             android:layout_below="@+id/passwordField"
             android:layout_centerHorizontal="true"
             android:textColor="#f5121213"
-            android:clickable="true"
             android:onClick="forgotPassword"/>
 
+        //Create account prompt
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,21 +91,24 @@
             android:layout_below="@+id/sendbutton"
             android:layout_centerHorizontal="true" />
 
+        //Create account button
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create An Account"
             android:id="@+id/createacctbutton"
             android:fontFamily="sans-serif-light"
-            android:background="@drawable/buttonlayout"
-            android:height="11dp"
-            android:width="50dp"
+            android:background="#4d1b1a1a"
             android:minHeight="35dp"
             android:minWidth="300dp"
             android:clickable="true"
+            android:onClick="createAccount"
+            android:layout_marginTop="40dp"
             android:layout_below="@+id/registertext"
             android:layout_centerHorizontal="true" />
 
+
+        //Screen title text
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
@@ -131,7 +119,17 @@
             android:textIsSelectable="false"
             android:textAlignment="center"
             android:textColor="#fa040304"
-            android:layout_alignTop="@+id/imageView"
+            android:layout_alignTop="@+id/bannerbg"
+            android:layout_centerHorizontal="true" />
+
+
+        //Divider between sections
+        <View
+            android:layout_width="365dp"
+            android:layout_height="2dp"
+            android:background="#991b1a1a"
+            android:id="@+id/divider"
+            android:layout_below="@+id/Setuptext"
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>

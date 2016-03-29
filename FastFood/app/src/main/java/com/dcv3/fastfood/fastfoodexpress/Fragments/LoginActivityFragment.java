@@ -13,10 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dcv3.fastfood.fastfoodexpress.MainActivity;
 import com.dcv3.fastfood.fastfoodexpress.R;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 
@@ -29,8 +34,7 @@ public class LoginActivityFragment extends Fragment {
     private Button createAcctButton;
 
 
-    //DEZA
-    //YOU CAN ALSO HAVE USERS LOGIN USING FACEBOOK VIA PARSE
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,7 +64,7 @@ public class LoginActivityFragment extends Fragment {
     }
 
     private void login(){
-        String username = emailAddressET.getText().toString().trim();
+        final String username = emailAddressET.getText().toString().trim();
         String password = passWordET.getText().toString().trim();
 
         // Validate the log in data
@@ -99,6 +103,9 @@ public class LoginActivityFragment extends Fragment {
                     // Show the error message
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                 } else {
+                    //this is where i am setting the userId variable in main
+                    MainActivity activity = (MainActivity) getActivity();
+                    activity.setUserId(ParseUser.getCurrentUser().getObjectId());
                     switchFragment(new PendorStartActivityFragment());
                 }
             }

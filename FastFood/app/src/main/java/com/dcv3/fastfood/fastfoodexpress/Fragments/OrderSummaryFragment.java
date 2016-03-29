@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Order;
 import com.dcv3.fastfood.fastfoodexpress.R;
 
 /**
  * Created by dezereljones on 11/17/15.
  */
 public class OrderSummaryFragment extends Fragment {
+
+
     public OrderSummaryFragment(){
 
     }
@@ -22,4 +25,6 @@ public class OrderSummaryFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_ordersummary, container, false);
         return v;
     }
+
+
 }

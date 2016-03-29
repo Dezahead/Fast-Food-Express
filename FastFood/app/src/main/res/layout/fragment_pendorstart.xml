@@ -10,36 +10,9 @@
         android:id="@+id/container"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#806efc2b"
         android:textAlignment="center">
 
 
-        //Text to create banner
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Fast-Food Express"
-            android:id="@+id/bannerText"
-            android:layout_alignParentTop="true"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:layout_alignParentEnd="true"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center"
-            android:textColor="#fa040304" />
-
-        //Background image to create banner
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bannerbg"
-            android:layout_below="@+id/bannerText"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="62dp" />
 
         //Screen Title text
         <TextView
@@ -52,8 +25,8 @@
             android:textIsSelectable="false"
             android:textAlignment="center"
             android:textColor="#fa040304"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/clock"
+            android:layout_alignParentEnd="true" />
 
 
         //Second screen title text
@@ -68,21 +41,20 @@
             android:textAlignment="center"
             android:textColor="#fa040304"
             android:layout_alignTop="@+id/screentitle1"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentStart="true" />
 
 
         //inserts clock image
         <ImageView
             android:src="@drawable/clock"
             android:id="@+id/clock"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="30dp"
-            android:layout_above="@+id/screentitle1"
-            android:layout_alignParentStart="true"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignTop="@+id/arrow"
+            android:layout_alignStart="@+id/screentitle1"
+            android:layout_marginStart="41dp"
             android:clickable="true"
-            android:onClick="pending"
-            android:layout_alignStart="@+id/screentitle1"/>
+            android:onClick="pending" />
 
         //inserts arrow image
         <ImageView
@@ -90,23 +62,20 @@
             android:id="@+id/arrow"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:clickable="true"
             android:onClick="selectRestaurant"
             android:layout_below="@+id/imageView"
-            android:layout_alignStart="@+id/screentitle3"
-            android:layout_above="@+id/screentitle3"
             android:layout_alignEnd="@+id/screentitle3" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fastfoodexpresslogo"
+            android:src="@drawable/logo"
             android:id="@+id/imageView"
             android:minWidth="100dp"
             android:minHeight="100dp"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/clock"
-            android:layout_alignEnd="@+id/screentitle3" />
+            android:layout_toEndOf="@+id/arrow"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>

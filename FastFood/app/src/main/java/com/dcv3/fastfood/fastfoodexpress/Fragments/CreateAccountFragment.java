@@ -117,7 +117,7 @@ public class CreateAccountFragment extends Fragment {
         user.setPassword(password);
         user.setEmail(emailAddress);
         //DEZA FIGURE OUT HOW TO ADD FIRST NAME AND LAST NAME to the database
-        //user.put(FirstName, firstName);
+        //user.put(FirstName, firstName)
         //user.put(LastName, lastName);
 
         // Call the Parse signup method - DJ

@@ -1,92 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
+    //Background
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#806efc2b"
         android:textAlignment="center">
 
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Fast-Food Express"
-            android:id="@+id/bannerText"
-            android:layout_alignParentTop="true"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:layout_alignParentEnd="true"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center"
-            android:textColor="#fa040304" />
 
+
+
+        //logo
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:id="@+id/imageView"
-            android:layout_below="@+id/bannerText"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="62dp" />
+            android:id="@+id/logo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order Confirmation"
-            android:id="@+id/bigordersumm"
-            android:textSize="45dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center"
-            android:textColor="#fa040304"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_centerHorizontal="true" />
+        //Thank you text
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:fontFamily="sans-serif-light"
             android:text="Thank you for your order! Your order has been been placed."
             android:id="@+id/summaryinstruct"
             android:maxLines="2"
-            android:layout_marginBottom="37dp"
-            android:layout_above="@+id/placeorderbuttonbutton"
-            android:layout_centerHorizontal="true" />
+            android:autoText="false"
+            android:textSize="27dp"
+            android:layout_alignBottom="@+id/logo"
+            android:layout_alignParentStart="true" />
 
+        //Pick up later button
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
-            android:id="@+id/placeorderbuttonbutton"
+            android:onClick="selectRestaurant"
+            android:id="@+id/pulbutton"
+            android:text="I&apos;ll pick it up later."
             android:fontFamily="sans-serif-light"
-            android:background="@drawable/buttonlayout"
-            android:height="11dp"
-            android:width="100dp"
-            android:layout_marginBottom="44dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:clickable="true"
-            android:onClick="pendorstart" />
+            android:background="#4d1b1a1a"
+            android:layout_marginTop="36dp"
+            android:layout_below="@+id/button2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/check"
-            android:id="@+id/imageView2"
-            android:minWidth="60dp"
-            android:minHeight="60dp"
-            android:layout_below="@+id/bigordersumm"
-            android:layout_alignEnd="@+id/placeorderbuttonbutton" />
+
+        //On my way button
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:text="I'm on the way!"
+            android:fontFamily="sans-serif-light"
+            android:background="#4d1b1a1a"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
 
     </RelativeLayout>
 </ScrollView>

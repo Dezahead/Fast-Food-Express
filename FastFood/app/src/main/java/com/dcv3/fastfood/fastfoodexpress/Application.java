@@ -1,9 +1,7 @@
-/*
-Bug occurred after I tried to initialize the Parse session and register a subclass (I added .Application name to manifest)
- */
 
 package com.dcv3.fastfood.fastfoodexpress;
 
+import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Restaurants;
 import com.dcv3.fastfood.fastfoodexpress.ParseObjects.User;
 import com.parse.Parse;
 import com.parse.ParseACL;
@@ -20,9 +18,10 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        //ParseObject.registerSubclass(User.class);
-        Parse.initialize(this,"UI3XVsyUqhIWyDLNjwPq7zILvGUCxZ6qNcvEvsoa",
-           "kTEeNTMpNNW9jujDpZfgq6PGbio5avN9kEIVyT4D");
+        ParseObject.registerSubclass(Restaurants.class);
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this,"Gokvsi0NGFg7I87lMaRgLjz6XILpfR1AofzzxKOF",
+           "cmVUZO1VJRrGSRBbc3LmdYluCjxisZKv5nEIx1fl");
         ParseACL defaultACL = new ParseACL();
         // Optionally enable public read access.
         // defaultACL.setPublicReadAccess(true);

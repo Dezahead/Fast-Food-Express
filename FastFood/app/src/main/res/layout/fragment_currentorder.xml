@@ -5,39 +5,26 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
+
+    //Background
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#806efc2b"
         android:textAlignment="center">
 
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Fast-Food Express"
-            android:id="@+id/bannerText"
-            android:layout_alignParentTop="true"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:layout_alignParentEnd="true"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center"
-            android:textColor="#fa040304" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_below="@+id/bannerText"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="62dp" />
 
+        //Background image
+
+
+
+
+
+
+
+        //Screen Title text
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
@@ -48,44 +35,54 @@
             android:textIsSelectable="false"
             android:textAlignment="center"
             android:textColor="#fa040304"
-            android:layout_alignTop="@+id/imageView"
+            android:layout_alignBottom="@+id/imageView2"
             android:layout_centerHorizontal="true" />
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
+
+
+        //Text to view food customization
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/button2"
             android:text="Seafood Platter"
-            android:id="@+id/item1"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_above="@+id/details1"
+            android:fontFamily="sans-serif-light"
+            android:background="#4d1b1a1a"
+            android:layout_marginTop="129dp"
+            android:layout_below="@+id/imageView2"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:fontFamily="sans-serif-thin"
+        //Delete button
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Tartar Sauce"
-            android:id="@+id/details1"
-            android:textSize="20dp"
-            android:textIsSelectable="false"
-            android:background="#ff575957"
-            android:minHeight="30dp"
-            android:minWidth="50dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
+            android:text="Delete"
+            android:id="@+id/deletebttn"
+            android:fontFamily="sans-serif-light"
+            android:background="#4d1b1a1a"
+            android:layout_alignTop="@+id/button2"
             android:layout_alignParentEnd="true" />
+
+        //logo
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        //Inserts divider
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="4dp"
+            android:background="#991b1a1a"
+            android:id="@+id/divider"
+            android:layout_alignStart="@+id/bigcurrentorders"
+            android:layout_below="@+id/imageView2"
+            android:layout_alignEnd="@+id/bigcurrentorders" />
+
     </RelativeLayout>
 </ScrollView>
