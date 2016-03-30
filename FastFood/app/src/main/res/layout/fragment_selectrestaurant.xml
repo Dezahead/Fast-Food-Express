@@ -12,75 +12,10 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:outlineProvider="bounds">
-
-
-
-
-        //Screen Title text
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose a Restaurant"
-            android:id="@+id/selection"
-            android:textSize="50dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center"
-            android:textColor="#fa040304"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="191dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-
-        //Divider between sections
-        <View
-            android:layout_width="250dp"
-            android:layout_height="2dp"
-            android:background="#991b1a1a"
-            android:id="@+id/divider"
-            android:layout_below="@+id/selection"
-            android:layout_centerHorizontal="true" />
-
-
-
-        //Ok button for user to select
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OK"
-            android:id="@+id/okbutton1"
-            android:fontFamily="sans-serif-thin"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#4d1b1a1a"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:gravity="center"
-            android:textColor="#fa040304"
-            android:checked="false"
-            android:layout_below="@+id/list"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:outlineProvider="background"
-            android:singleLine="false"
-            android:onClick="viewMenu"
-            android:clickable="true"/>
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:scaleType="fitXY"
-            android:src="@mipmap/logo"
-            android:layout_above="@+id/divider"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="91dp" />
-
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/list"
-            android:layout_below="@+id/divider"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="45dp" />
 

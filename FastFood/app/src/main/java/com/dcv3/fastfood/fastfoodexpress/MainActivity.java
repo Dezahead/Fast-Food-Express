@@ -45,10 +45,6 @@ public class MainActivity extends ActionBarActivity {
     String[] customization;
     String propertyNo;
     Number price;
-    /*ListView listview;
-    List<ParseObject> ob;
-    ListViewAdapter adapter;
-    private List<Restaurants> restaurantList = null;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,50 +57,8 @@ public class MainActivity extends ActionBarActivity {
         switchFragment(new LoginActivityFragment());
     }
 
- /*   public class RemoteDataTask extends AsyncTask<Void, Void, Void> {
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
 
-        @Override
-        protected Void doInBackground(Void... params) {
-            // Create the array
-            restaurantList = new ArrayList<>();
-            try {
-                // Locate the class table named "Restaurants" in Parse.com
-                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                        "Restaurants");
-                // Locate the column named "restaurantName" in Parse.com and order list
-                // by ascending
-                query.orderByAscending("restaurantName");
-                ob = query.find();
-                for (ParseObject restaurants : ob) {
-                    Restaurants choice = new Restaurants();
-                    choice.setName((String) restaurants.get("restaurantName"));
-                    restaurantList.add(choice);
-                }
-            } catch (ParseException e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            // Locate the listview in fragment_selectrestaurant
-            listview = (ListView)findViewById(R.id.list);
-            // Pass the results into ListViewAdapter.java
-            adapter = new ListViewAdapter(SelectRestaurantFragment.this,
-                    restaurantList);
-            // Binds the Adapter to the ListView
-            listview.setAdapter(adapter);
-
-        }
-    }
-*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -144,7 +98,6 @@ public class MainActivity extends ActionBarActivity {
     public void selectRestaurant(View view){
 
         switchFragment(new SelectRestaurantFragment());
-        //new RemoteDataTask().execute();
     }
 
     public void viewMenu(View view){

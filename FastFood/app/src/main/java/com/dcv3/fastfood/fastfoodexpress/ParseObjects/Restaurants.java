@@ -24,7 +24,7 @@ public class Restaurants extends ParseObject{
     }
 
     public void setName(String restName){
-        restaurantName = restName;
+        this.restaurantName = restName;
     }
 
     public String getNum(){
