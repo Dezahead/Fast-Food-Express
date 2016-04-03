@@ -51,7 +51,7 @@ public class Tracker extends ParseObject implements LocationListener{
         double dist = location.distanceTo(restLocation);
         if (dist < 10){
             arrived = true;
-            /////this is where we print
+            /////this is where order is sent to restaurant current order screen
         }
     }
 

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ConfirmationFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CustomizationFragment;
@@ -37,14 +38,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener{
     FragmentManager fm;
     FragmentTransaction ft;
-    String userId;
-    String[] menuItems;
-    String[] customization;
-    String propertyNo;
-    Number price;
+    public String userId;
+    public String[] menuItems;
+    public String[] customization;
+    public String restaurantId;
+    public Number price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +58,13 @@ public class MainActivity extends ActionBarActivity {
         switchFragment(new LoginActivityFragment());
     }
 
+    public void onRestaurantSelected(String id){
+        restaurantId = id;
+        //Toast.makeText(this, "clicked " + restaurantId, Toast.LENGTH_SHORT).show();
+        viewMenu();
+    }
 
-
-
-    @Override
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -94,42 +98,51 @@ public class MainActivity extends ActionBarActivity {
         userId = id;
     }
 
+    public void setRestaurantId(String id){restaurantId = id;}
+
 
     public void selectRestaurant(View view){
-
         switchFragment(new SelectRestaurantFragment());
     }
 
-    public void viewMenu(View view){
-        switchFragment(new RestaurantMenuFragment());
+    public void viewMenu(){
+        //these lines send the restaurant id from the activity to the fragment
+        Bundle bundle=new Bundle();
+        bundle.putString("id", restaurantId);
+        //set Fragmentclass Arguments
+        RestaurantMenuFragment obj=new RestaurantMenuFragment();
+        obj.setArguments(bundle);
+
+        switchFragment(obj);
+
     }
 
-    public void customizeFood(View view){
+    public void customizeFood(){
         switchFragment(new CustomizationFragment());
     }
 
-    public void orderSummary(View view){
+    public void orderSummary(){
         switchFragment(new OrderSummaryFragment());
     }
 
     public void confirmation(View view){
-        new Order(userId, menuItems, customization, propertyNo, price);
+        new Order(userId, menuItems, customization, restaurantId, price);
         switchFragment(new ConfirmationFragment());
     }
 
-    public void forgotPassword(View view){
+    public void forgotPassword(){
         switchFragment(new ForgotPasswordFragment());
     }
 
-    public void logIn(View view){
+    public void logIn(){
         switchFragment(new LoginActivityFragment());
     }
 
-    public void pending(View view){
+    public void pending(){
         switchFragment(new PendingActivityFragment());
     }
 
-    public void pendorstart(View view){
+    public void pendorstart(){
         switchFragment(new PendorStartActivityFragment());
     }
 

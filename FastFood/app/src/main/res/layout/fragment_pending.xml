@@ -29,7 +29,6 @@
             android:layout_height="fill_parent"
             android:scaleType="fitXY"
             android:src="@drawable/logo"
-            android:layout_above="@+id/summaryinstruct"
             android:layout_centerHorizontal="true" />
 
         //Screen Title text
