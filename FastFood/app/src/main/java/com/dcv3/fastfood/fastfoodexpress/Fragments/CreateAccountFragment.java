@@ -48,7 +48,7 @@ public class CreateAccountFragment extends Fragment {
         lastNameET = (EditText)v.findViewById(R.id.lname);
         emailAddressET = (EditText)v.findViewById(R.id.Emailaddressfield2);
         passWordET = (EditText)v.findViewById(R.id.passwordField2);
-        createAcctButton = (Button)v.findViewById(R.id.createacctbutton);
+        createAcctButton = (Button)v.findViewById(R.id.sendbutton);
 
         createAcctButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -91,12 +91,12 @@ public class CreateAccountFragment extends Fragment {
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_email));
         }
-        if (password.length() == 0) {
+        if (password.length() < 5) {
             if (validationError) {
                 validationErrorMessage.append(getString(R.string.error_join));
             }
             validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_password));
+            validationErrorMessage.append("Password Invalid");
         }
         validationErrorMessage.append(getString(R.string.error_end));
 

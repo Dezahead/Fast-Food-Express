@@ -3,6 +3,8 @@ package com.dcv3.fastfood.fastfoodexpress.ParseObjects;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by dezereljones on 1/16/16.
  */
@@ -11,12 +13,12 @@ public class Order extends ParseObject {
     ParseObject order = new ParseObject("order");
     String orderNum;
     String userId;
-    String[] menuItems;
+    ArrayList<String> menuItems;
     String[] customization;
     String propertyNo;
     Number price;
 
-    public Order(String id, String[] items, String[] custom, String property, Number cost){
+    public Order(String id, ArrayList<String> items, String[] custom, String property, Number cost){
         userId = id;
         menuItems = items;
         customization = custom;

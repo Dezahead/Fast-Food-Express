@@ -16,7 +16,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.dcv3.fastfood.fastfoodexpress.Fragments.CheckoutFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ConfirmationFragment;
+import com.dcv3.fastfood.fastfoodexpress.Fragments.CreateAccountFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CustomizationFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ForgotPasswordFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.LoginActivityFragment;
@@ -38,14 +40,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener{
+public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener, RestaurantMenuFragment.OnFoodItemSelectedListener{
     FragmentManager fm;
     FragmentTransaction ft;
     public String userId;
-    public String[] menuItems;
-    public String[] customization;
+    ArrayList<String> orderItems = new ArrayList<String>();
+    //public String[] orderItems = new String[100];
+    public String[] customization = new String[100];
     public String restaurantId;
     public Number price;
+    //public int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,11 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
 
         //changes the fragment view to the login screen-DJ
         switchFragment(new LoginActivityFragment());
+    }
+
+    public void OnFoodItemSelected(String item){
+        orderItems.add(item);
+        //Toast.makeText(this, "You selected : " + item, Toast.LENGTH_SHORT).show();
     }
 
     public void onRestaurantSelected(String id){
@@ -117,16 +126,41 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
 
     }
 
+    public void checkOut(View view){
+        switchFragment(new CheckoutFragment());
+    }
+
+    public void viewmenu(View view){
+        //these lines send the restaurant id from the activity to the fragment
+        Bundle bundle=new Bundle();
+        bundle.putString("id", restaurantId);
+        //set Fragmentclass Arguments
+        RestaurantMenuFragment obj=new RestaurantMenuFragment();
+        obj.setArguments(bundle);
+
+        switchFragment(obj);
+
+    }
+
     public void customizeFood(){
         switchFragment(new CustomizationFragment());
     }
 
-    public void orderSummary(){
-        switchFragment(new OrderSummaryFragment());
+    public void orderSummary(View view){
+
+        //these lines send the restaurant id from the activity to the fragment
+        Bundle bundle=new Bundle();
+        bundle.putStringArrayList("items", orderItems);
+        //set Fragmentclass Arguments
+        OrderSummaryFragment obj=new OrderSummaryFragment();
+        obj.setArguments(bundle);
+
+        switchFragment(obj);
+
     }
 
     public void confirmation(View view){
-        new Order(userId, menuItems, customization, restaurantId, price);
+        new Order(userId, orderItems, customization, restaurantId, price);
         switchFragment(new ConfirmationFragment());
     }
 
@@ -134,11 +168,16 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new ForgotPasswordFragment());
     }
 
+    public void createAccount(View view){
+        switchFragment(new CreateAccountFragment());
+    }
+
+
     public void logIn(){
         switchFragment(new LoginActivityFragment());
     }
 
-    public void pending(){
+    public void pending(View view){
         switchFragment(new PendingActivityFragment());
     }
 

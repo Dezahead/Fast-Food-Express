@@ -101,7 +101,7 @@ public class LoginActivityFragment extends Fragment {
                 dialog.dismiss();
                 if (e != null) {
                     // Show the error message
-                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Incorrect Email or Password", Toast.LENGTH_LONG).show();
                 } else {
                     //this is where i am setting the userId variable in main
                     MainActivity activity = (MainActivity) getActivity();

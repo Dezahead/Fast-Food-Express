@@ -20,5 +20,17 @@
             android:layout_centerHorizontal="true"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to Order"
+            android:id="@+id/addButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="57dp"
+            android:layout_below="@id/list"
+            android:clickable="true"
+            android:onClick="orderSummary"/>
+
     </RelativeLayout>
 </ScrollView>

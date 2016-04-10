@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total                     $6.76"
-            android:id="@+id/total"
+            android:id="@+id/totalText"
             android:textSize="38dp"
             android:textIsSelectable="false"
             android:background="#4d1b1a1a"
@@ -92,7 +92,7 @@
             android:minWidth="200dp"
             android:layout_marginTop="39dp"
             android:layout_alignEnd="@+id/screentitle1"
-            android:layout_below="@+id/total"
+            android:layout_below="@+id/totalText"
             android:layout_centerVertical="true" />
 
         //Back button

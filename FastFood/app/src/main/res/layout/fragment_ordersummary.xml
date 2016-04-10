@@ -53,48 +53,12 @@
             android:layout_centerHorizontal="true" />
 
         //Order one text
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seafood Platter"
-            android:id="@+id/total"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#4d1b1a1a"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_below="@+id/summaryinstruct"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="70dp"
-            android:layout_alignParentEnd="true" />
 
         //Customization1 text
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Tartar Sauce"
-            android:id="@+id/details1"
-            android:textSize="20dp"
-            android:textIsSelectable="false"
-            android:background="#4d1b1a1a"
-            android:minHeight="30dp"
-            android:minWidth="50dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_below="@+id/total"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
 
 
         //Place order button
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,8 +69,11 @@
             android:minHeight="35dp"
             android:minWidth="100dp"
             android:layout_marginTop="39dp"
-            android:layout_below="@+id/details1"
-            android:layout_alignEnd="@+id/screentitle1" />
+            android:layout_alignEnd="@+id/screentitle1"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/summaryinstruct"
+            android:clickable="true"
+            android:onClick="checkOut"/>
 
         //Back button
         <Button
@@ -119,7 +86,9 @@
             android:minHeight="35dp"
             android:minWidth="100dp"
             android:layout_alignTop="@+id/pay"
-            android:layout_alignStart="@+id/screentitle1" />
+            android:layout_alignStart="@+id/screentitle1"
+            android:clickable="true"
+            android:onClick="viewmenu"/>
 
         <ImageView
             android:id="@+id/imageView4"
@@ -129,6 +98,15 @@
             android:src="@drawable/logo"
             android:layout_above="@+id/summaryinstruct"
             android:layout_centerHorizontal="true" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/backbutton"
+            android:layout_below="@id/summaryinstruct"/>
 
     </RelativeLayout>
 </ScrollView>
