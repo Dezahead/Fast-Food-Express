@@ -6,15 +6,12 @@ package com.dcv3.fastfood.fastfoodexpress;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.Fragment;
-import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
+
 
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CheckoutFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ConfirmationFragment;
@@ -27,17 +24,14 @@ import com.dcv3.fastfood.fastfoodexpress.Fragments.PendingActivityFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.PendorStartActivityFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.RestaurantMenuFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.SelectRestaurantFragment;
-import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Order;
-import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Restaurants;
+import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Orders;
 import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Tracker;
 import com.parse.ParseAnalytics;
-import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
+
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener, RestaurantMenuFragment.OnFoodItemSelectedListener{
@@ -45,11 +39,10 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     FragmentTransaction ft;
     public String userId;
     ArrayList<String> orderItems = new ArrayList<String>();
-    //public String[] orderItems = new String[100];
     public String[] customization = new String[100];
     public String restaurantId;
-    public Number price;
-    //public int count = 0;
+    public ParseGeoPoint restLoc;
+    double total = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +55,17 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new LoginActivityFragment());
     }
 
-    public void OnFoodItemSelected(String item){
+    public void OnFoodItemSelected(String item, double price, ParseGeoPoint restLocation){
         orderItems.add(item);
-        //Toast.makeText(this, "You selected : " + item, Toast.LENGTH_SHORT).show();
+        total += price;
+        restLoc = restLocation;
+        //Toast.makeText(this, "Total : " + total, Toast.LENGTH_SHORT).show();
     }
 
     public void onRestaurantSelected(String id){
         restaurantId = id;
-        //Toast.makeText(this, "clicked " + restaurantId, Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, "clicked " + restLatitude, Toast.LENGTH_SHORT).show();
         viewMenu();
     }
 
@@ -107,9 +103,6 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         userId = id;
     }
 
-    public void setRestaurantId(String id){restaurantId = id;}
-
-
     public void selectRestaurant(View view){
         switchFragment(new SelectRestaurantFragment());
     }
@@ -127,7 +120,15 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     }
 
     public void checkOut(View view){
-        switchFragment(new CheckoutFragment());
+        Bundle bundle=new Bundle();
+        bundle.putStringArrayList("items", orderItems);
+        bundle.putDouble("total", total);
+        //set Fragmentclass Arguments
+        CheckoutFragment obj=new CheckoutFragment();
+        obj.setArguments(bundle);
+
+        switchFragment(obj);
+
     }
 
     public void viewmenu(View view){
@@ -160,7 +161,17 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     }
 
     public void confirmation(View view){
-        new Order(userId, orderItems, customization, restaurantId, price);
+        String[] menuItems = new String[(orderItems.size())];
+        orderItems.toArray(menuItems);
+        Orders newOrder = new Orders();
+        newOrder.put("restaurantNo", restaurantId);
+        newOrder.put("userID", userId);
+        newOrder.put("Total", total);
+        for (int i = 0; i < menuItems.length; i++)
+            newOrder.add("menuItems", menuItems[i]);
+
+        newOrder.saveInBackground();
+
         switchFragment(new ConfirmationFragment());
     }
 
@@ -181,18 +192,28 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new PendingActivityFragment());
     }
 
+    public void pendorstart(View view){
+        switchFragment(new PendorStartActivityFragment());
+    }
+
     public void pendorstart(){
         switchFragment(new PendorStartActivityFragment());
     }
 
     public void onTheWay()
     {
-        //fix this....you can't get the location this way...you have to get the
-        //location based on the one they chose
-        Restaurants thisRest = new Restaurants();
-        ParseGeoPoint location = thisRest.getLocation();
-        new Tracker(location);
-        //add a function so it returns home after the tracker starts
+        new Tracker(restLoc);
+
+        pendorstart();
+    }
+
+
+    public void onTheWay(View view)
+    {
+
+        new Tracker(restLoc);
+
+        pendorstart();
     }
 }
 

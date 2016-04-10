@@ -12,10 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.dcv3.fastfood.fastfoodexpress.R;
 import com.parse.FindCallback;
 
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -23,6 +25,7 @@ import com.parse.ParseQueryAdapter;
 
 import com.parse.ParseException;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -32,7 +35,11 @@ public class RestaurantMenuFragment extends Fragment{
     ListView listView;
     ParseQueryAdapter<ParseObject> mainAdapter;
     String restId;
+    double price;
     OnFoodItemSelectedListener mCallback;
+    Number amount;
+    DecimalFormat df = new DecimalFormat("#.##");
+    ParseGeoPoint restLoc;
 
 
     public RestaurantMenuFragment(){
@@ -41,7 +48,7 @@ public class RestaurantMenuFragment extends Fragment{
 
     //this creates an interface to communicate with the mainactivity
     public interface OnFoodItemSelectedListener {
-        void OnFoodItemSelected(String item);
+        void OnFoodItemSelected(String item, double price, ParseGeoPoint restLocation);
     }
 
     @Override
@@ -72,6 +79,8 @@ public class RestaurantMenuFragment extends Fragment{
                 // query to get menuitems for selected restaurant
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Menu");
                 ParseObject obj = ParseObject.createWithoutData("Restaurants", restId);
+                restLoc = obj.getParseGeoPoint("Location");
+                //Toast.makeText(getActivity(), "clicked " + restLoc, Toast.LENGTH_LONG).show();
                 query.whereEqualTo("restaurantNo", obj);
 
                 return query;
@@ -87,9 +96,16 @@ public class RestaurantMenuFragment extends Fragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                //Getting the name of each item selected
                 ParseObject obj = mainAdapter.getItem(position);
                 String foodItem = obj.getString("menuItems");
+                //Getting the price for each item selected
+                amount = obj.getNumber("Price");
+                String priceString = df.format(amount.doubleValue());
+                price = Double.parseDouble(priceString);
 
+                //Toast.makeText(getActivity(), "clicked " + price, Toast.LENGTH_LONG).show();
+/*
                 //Creating the instance of PopupMenu
                 final PopupMenu popup = new PopupMenu(getActivity(), listView);
 
@@ -115,8 +131,8 @@ public class RestaurantMenuFragment extends Fragment{
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
                 /////popup code ends here
 
-
-                mCallback.OnFoodItemSelected(foodItem);
+*/
+                mCallback.OnFoodItemSelected(foodItem, price, restLoc);
             }
         });
 

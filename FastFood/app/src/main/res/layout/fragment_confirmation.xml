@@ -47,7 +47,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="selectRestaurant"
+            android:onClick="pendorstart"
             android:id="@+id/pulbutton"
             android:text="I&apos;ll pick it up later."
             android:fontFamily="sans-serif-light"
@@ -55,7 +55,8 @@
             android:layout_marginTop="36dp"
             android:layout_below="@+id/button2"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:clickable="true" />
 
 
         //On my way button
@@ -69,7 +70,9 @@
             android:layout_below="@+id/logo"
             android:layout_marginTop="65dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:clickable="true"
+            android:onClick="onTheWay"/>
 
 
     </RelativeLayout>

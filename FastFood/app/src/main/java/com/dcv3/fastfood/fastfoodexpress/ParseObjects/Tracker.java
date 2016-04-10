@@ -54,6 +54,7 @@ public class Tracker extends ParseObject implements LocationListener{
             /////this is where order is sent to restaurant current order screen
             ///also the order number is created
             ///restaurant deletes order from database with delete button
+            //also need to stop tracker
         }
     }
 

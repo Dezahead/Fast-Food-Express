@@ -1,8 +1,7 @@
 
 package com.dcv3.fastfood.fastfoodexpress;
 
-import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Restaurants;
-import com.dcv3.fastfood.fastfoodexpress.ParseObjects.User;
+import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Orders;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseObject;
@@ -18,7 +17,7 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        ParseObject.registerSubclass(Restaurants.class);
+        ParseObject.registerSubclass(Orders.class);
         Parse.enableLocalDatastore(this);
         Parse.initialize(this,"Gokvsi0NGFg7I87lMaRgLjz6XILpfR1AofzzxKOF",
            "cmVUZO1VJRrGSRBbc3LmdYluCjxisZKv5nEIx1fl");
