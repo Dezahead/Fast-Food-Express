@@ -9,7 +9,9 @@ import android.widget.ListView;
 
 import com.dcv3.fastfood.fastfoodexpress.R;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 /**
  * Created by dezereljones on 11/28/15.
@@ -17,6 +19,7 @@ import com.parse.ParseQueryAdapter;
 public class PendingActivityFragment extends Fragment{
     ParseQueryAdapter<ParseObject> mainAdapter;
     ListView listView;
+    String userId;
     public PendingActivityFragment(){
 
     }
@@ -26,8 +29,22 @@ public class PendingActivityFragment extends Fragment{
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_pending, container, false);
 
+        userId =getArguments().getString("id");
+
+        // query pulls only the current users orders
         // Initialize main ParseQueryAdapter
-        mainAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), "Orders");
+        mainAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), new ParseQueryAdapter.QueryFactory<ParseObject>() {
+            public ParseQuery<ParseObject> create() {
+                // query to get orders for selected user
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Orders");
+                ParseObject obj = ParseObject.createWithoutData(ParseUser.class, userId);
+                //Toast.makeText(getActivity(), "clicked " + restLoc, Toast.LENGTH_LONG).show();
+                query.whereEqualTo("userID", obj);
+
+                return query;
+            }
+        });
+
         mainAdapter.setTextKey("restaurantName");
 
 

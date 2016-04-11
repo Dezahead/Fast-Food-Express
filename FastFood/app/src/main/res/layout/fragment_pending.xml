@@ -84,8 +84,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/list"
             android:layout_below="@+id/bigcurrentorders"
-            android:layout_alignParentStart="true" />
-
-
+            android:layout_alignParentStart="true"
+            />
     </RelativeLayout>
 </ScrollView>

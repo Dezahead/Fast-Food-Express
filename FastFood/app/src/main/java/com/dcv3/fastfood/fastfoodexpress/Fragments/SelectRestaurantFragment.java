@@ -37,10 +37,11 @@ public class SelectRestaurantFragment extends Fragment{
     OnRestSelectedListener mCallback;
     ParseGeoPoint location;
     String id;
+    String name;
 
     //this creates an interface to communicate with the mainactivity
     public interface OnRestSelectedListener {
-        void onRestaurantSelected(String id);
+        void onRestaurantSelected(String id, String name);
     }
 
     @Override
@@ -79,6 +80,7 @@ public class SelectRestaurantFragment extends Fragment{
                 ParseObject rest = mainAdapter.getItem(position);
                 //getting restaurant object id
                 id = rest.getObjectId();
+                name = rest.getString("restaurantName");
 /*
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Properties");
                 ParseObject object = ParseObject.createWithoutData("Restaurants", id);
@@ -103,7 +105,7 @@ public class SelectRestaurantFragment extends Fragment{
                 //Toast.makeText(getActivity(), "Lat: " + restLatitude, Toast.LENGTH_LONG).show();
 */
                 // Send the event to the host activity
-                mCallback.onRestaurantSelected(id);
+                mCallback.onRestaurantSelected(id, name);
             }
         });
 

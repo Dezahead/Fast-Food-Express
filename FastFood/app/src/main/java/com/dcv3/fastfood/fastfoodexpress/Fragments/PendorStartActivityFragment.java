@@ -14,8 +14,7 @@ import com.dcv3.fastfood.fastfoodexpress.R;
  * Created by dezereljones on 11/28/15.
  */
 public class PendorStartActivityFragment extends Fragment{
-    FragmentManager fm;
-    FragmentTransaction ft;
+
     public PendorStartActivityFragment(){
 
     }

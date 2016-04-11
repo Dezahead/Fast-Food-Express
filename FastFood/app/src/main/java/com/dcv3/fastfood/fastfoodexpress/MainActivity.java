@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     public String restaurantId;
     public ParseGeoPoint restLoc;
     double total = 0;
+    String restName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,9 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         //Toast.makeText(this, "Total : " + total, Toast.LENGTH_SHORT).show();
     }
 
-    public void onRestaurantSelected(String id){
+    public void onRestaurantSelected(String id, String name){
         restaurantId = id;
-
+        restName = name;
         //Toast.makeText(this, "clicked " + restLatitude, Toast.LENGTH_SHORT).show();
         viewMenu();
     }
@@ -161,15 +162,8 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     }
 
     public void confirmation(View view){
-        String[] menuItems = new String[(orderItems.size())];
-        orderItems.toArray(menuItems);
         Orders newOrder = new Orders();
-        newOrder.put("restaurantNo", restaurantId);
-        newOrder.put("userID", userId);
-        newOrder.put("Total", total);
-        for (int i = 0; i < menuItems.length; i++)
-            newOrder.add("menuItems", menuItems[i]);
-
+        newOrder.setdetails(userId, orderItems, restaurantId, total, restName);
         newOrder.saveInBackground();
 
         switchFragment(new ConfirmationFragment());
@@ -189,7 +183,14 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     }
 
     public void pending(View view){
-        switchFragment(new PendingActivityFragment());
+        //these lines send the restaurant id from the activity to the fragment
+        Bundle bundle=new Bundle();
+        bundle.putString("id", userId);
+        //set Fragmentclass Arguments
+        PendingActivityFragment obj=new PendingActivityFragment();
+        obj.setArguments(bundle);
+
+        switchFragment(obj);
     }
 
     public void pendorstart(View view){
@@ -203,16 +204,13 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     public void onTheWay()
     {
         new Tracker(restLoc);
-
         pendorstart();
     }
 
 
     public void onTheWay(View view)
     {
-
         new Tracker(restLoc);
-
         pendorstart();
     }
 }
