@@ -23,15 +23,8 @@
             android:layout_marginEnd="56dp"
             android:layout_marginTop="62dp" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/logo"
-            android:layout_centerHorizontal="true" />
-
         //Screen Title text
+
         <TextView
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
@@ -42,8 +35,7 @@
             android:textIsSelectable="false"
             android:textAlignment="center"
             android:textColor="#fa040304"
-            android:layout_marginTop="239dp"
-            android:layout_below="@+id/bannerbg"
+            android:layout_alignBottom="@+id/bannerbg"
             android:layout_centerHorizontal="true" />
 
         //Divider between sections
@@ -56,45 +48,8 @@
             android:layout_alignEnd="@+id/bigcurrentorders" />
 
         //Order one text
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seafood Platter"
-            android:id="@+id/total"
-            android:textSize="38dp"
-            android:textIsSelectable="false"
-            android:background="#4d1b1a1a"
-            android:minHeight="52dp"
-            android:minWidth="300dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_marginTop="62dp"
-            android:layout_below="@+id/divider"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
 
         //Customization1 text
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Tartar Sauce"
-            android:id="@+id/details1"
-            android:textSize="20dp"
-            android:textIsSelectable="false"
-            android:background="#4d1b1a1a"
-            android:minHeight="30dp"
-            android:minWidth="50dp"
-            android:gravity="left"
-            android:textColor="#fa040304"
-            android:checked="true"
-            android:layout_below="@+id/total"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -103,10 +58,33 @@
             android:id="@+id/omwbutton"
             android:fontFamily="sans-serif-light"
             android:background="#4d1b1a1a"
-            android:layout_marginTop="440dp"
-            android:layout_alignParentEnd="true"
             android:clickable="true"
-            android:onClick="onTheWay" />
+            android:onClick="onTheWay"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/list"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/backbutton"
+            android:fontFamily="sans-serif-light"
+            android:background="#4d1b1a1a"
+            android:clickable="true"
+            android:onClick="pendorstart"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/list"
+            android:layout_alignLeft="@id/omwbutton"
+            />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            android:layout_below="@+id/bigcurrentorders"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>
