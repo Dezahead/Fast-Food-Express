@@ -29,4 +29,6 @@ dependencies {
     compile 'com.parse:parse-android:1.12.0'
     compile 'com.parse:parseui-login-android:0.0.1'
     compile 'com.parse:parseui-widget-android:0.0.1'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+
 }

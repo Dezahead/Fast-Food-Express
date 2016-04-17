@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CheckoutFragment;
@@ -59,8 +60,8 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     public void OnFoodItemSelected(String item, double price, ParseGeoPoint restLocation){
         orderItems.add(item);
         total += price;
-        restLoc = restLocation;
-        //Toast.makeText(this, "Total : " + total, Toast.LENGTH_SHORT).show();
+        restLoc = new ParseGeoPoint(restLocation);
+        Toast.makeText(this, "Location : " + restLoc, Toast.LENGTH_SHORT).show();
     }
 
     public void onRestaurantSelected(String id, String name){
@@ -203,14 +204,20 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
 
     public void onTheWay()
     {
-        new Tracker(restLoc);
+        Tracker gps = new Tracker(this, restLoc);
+        if(gps.canGetLocation()){
+
+        }
         pendorstart();
     }
 
 
     public void onTheWay(View view)
     {
-        new Tracker(restLoc);
+        Tracker gps = new Tracker(this, restLoc);
+        if(gps.canGetLocation()){
+
+        }
         pendorstart();
     }
 }
