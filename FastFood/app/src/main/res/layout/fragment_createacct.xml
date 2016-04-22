@@ -13,12 +13,18 @@
         android:layout_height="wrap_content"
         android:textAlignment="center">
 
+        <ImageView
+            android:src="@mipmap/bkgrnd"
+            android:scaleType="centerCrop"
+            android:layout_width="fill_parent"
+            android:layout_height= "fill_parent" />
+
+
         //Banner background
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bannerbg"
-            android:layout_below="@+id/bannerText"
             android:layout_marginEnd="56dp"
             android:layout_marginTop="62dp" />
 
@@ -109,7 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/passwordField2"
-            android:text="  Password"
+            android:hint="  Password"
+            android:inputType="textPassword"
             android:minHeight="30dp"
             android:minWidth="300dp"
             android:textAlignment="center"

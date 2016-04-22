@@ -111,6 +111,4 @@ public class SelectRestaurantFragment extends Fragment{
 
         return rootView;
     }
-
-
 }

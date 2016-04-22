@@ -9,15 +9,41 @@
     //Background
     <RelativeLayout
         android:id="@+id/container"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center">
 
-        <ListView
+        <ImageView
+            android:src="@mipmap/bkgrnd"
+            android:scaleType="centerCrop"
+            android:layout_width="fill_parent"
+            android:layout_height= "fill_parent" />
+
+        //Screen Title text
+        <TextView
+            android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Menu"
+            android:id="@+id/screentitle1"
+            android:textSize="50sp"
+            android:textIsSelectable="false"
+            android:textAlignment="center"
+            android:textColor="#fa040304"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
             android:id="@+id/list"
-            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="20.0sp"
+            android:fontFamily="sans-serif-thin"
+            android:textSize="50dp"
+            android:choiceMode="singleChoice"
             />
 
         <Button
@@ -27,10 +53,10 @@
             android:id="@+id/addButton"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="57dp"
-            android:layout_below="@id/list"
+            android:layout_marginBottom="100dp"
             android:clickable="true"
-            android:onClick="orderSummary"/>
+            android:onClick="orderSummary"
+            />
 
     </RelativeLayout>
 </ScrollView>

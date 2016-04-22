@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         orderItems.add(item);
         total += price;
         restLoc = new ParseGeoPoint(restLocation);
-        Toast.makeText(this, "Location : " + restLoc, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Location : " + restLoc, Toast.LENGTH_SHORT).show();
     }
 
     public void onRestaurantSelected(String id, String name){
