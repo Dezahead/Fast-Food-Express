@@ -40,6 +40,7 @@ public class RestaurantMenuFragment extends Fragment{
     Number amount;
     DecimalFormat df = new DecimalFormat("#.##");
     ParseGeoPoint restLoc;
+    Boolean clicked = false;
 
 
     public RestaurantMenuFragment(){
@@ -96,6 +97,7 @@ public class RestaurantMenuFragment extends Fragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                clicked = true;
                 //Getting the name of each item selected
                 ParseObject obj = mainAdapter.getItem(position);
                 String foodItem = obj.getString("menuItems");

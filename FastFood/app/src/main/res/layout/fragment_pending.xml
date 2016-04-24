@@ -60,11 +60,9 @@
             android:fontFamily="sans-serif-light"
             android:background="#4d1b1a1a"
             android:clickable="true"
-            android:onClick="onTheWay"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/list"
-            />
+            android:layout_alignStart="@+id/bigcurrentorders"
+            android:layout_marginBottom="20dp"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -76,16 +74,21 @@
             android:clickable="true"
             android:onClick="pendorstart"
             android:layout_alignParentBottom="true"
-            android:layout_below="@id/list"
-            android:layout_alignLeft="@id/omwbutton"
-            />
-
-        <ListView
-            android:layout_width="wrap_content"
+            android:layout_alignEnd="@+id/bigcurrentorders"
+            android:layout_marginBottom="20dp"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/list"
-            android:layout_below="@+id/bigcurrentorders"
-            android:layout_alignParentStart="true"
-            />
+            android:layout_above="@id/backbutton"
+            android:layout_below="@id/divider"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/list"
+                android:choiceMode="singleChoice"
+                />
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>

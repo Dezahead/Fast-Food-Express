@@ -20,8 +20,7 @@
         android:textIsSelectable="false"
         android:textAlignment="center"
         android:textColor="#fa040304"
-        android:layout_marginTop="175dp"
-        android:layout_below="@+id/bannerbg"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true" />
 
     //Divider between sections
@@ -42,9 +41,8 @@
         android:id="@+id/summaryinstruct"
         android:textAlignment="center"
         android:maxLines="2"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/screentitle1"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/divider"
+        android:layout_alignParentStart="true" />
 
     //Order one text
 
@@ -60,43 +58,39 @@
         android:id="@+id/pay"
         android:fontFamily="sans-serif-light"
         android:background="#4d1b1a1a"
-        android:minHeight="35dp"
-        android:minWidth="100dp"
         android:clickable="true"
         android:onClick="checkOut"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/list"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/screentitle1"
+        android:layout_marginStart="63dp" />
 
     //Back button
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="Add More"
         android:background="#4d1b1a1a"
         android:id="@+id/backbutton"
         android:fontFamily="sans-serif-light"
-        android:minHeight="35dp"
-        android:minWidth="100dp"
         android:clickable="true"
         android:onClick="viewmenu"
-        android:layout_alignTop="@+id/pay"
-        android:layout_alignParentStart="true" />
+        android:layout_toEndOf="@+id/pay"
+        android:layout_marginStart="61dp"
+        android:layout_alignParentBottom="true" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/logo"
-        android:layout_above="@+id/summaryinstruct"
-        android:layout_centerHorizontal="true" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:id="@+id/list"
-        android:layout_below="@+id/summaryinstruct"
-        android:layout_alignParentStart="true" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summaryinstruct"
+        android:layout_above="@id/backbutton"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        >
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            />
+    </LinearLayout>
 
 </RelativeLayout>

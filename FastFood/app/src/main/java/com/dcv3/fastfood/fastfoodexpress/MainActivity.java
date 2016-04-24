@@ -125,6 +125,9 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         Bundle bundle=new Bundle();
         bundle.putStringArrayList("items", orderItems);
         bundle.putDouble("total", total);
+        bundle.putString("id", userId);
+        bundle.putString("restName", restName);
+        bundle.putString("restId", restaurantId);
         //set Fragmentclass Arguments
         CheckoutFragment obj=new CheckoutFragment();
         obj.setArguments(bundle);
@@ -149,17 +152,20 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new CustomizationFragment());
     }
 
-    public void orderSummary(View view){
+    public void orderSummary(View view) {
+        if (orderItems.size() == 0)
+            Toast.makeText(this, "Please Select an Item", Toast.LENGTH_LONG)
+                    .show();
+        else{
+            //these lines send the restaurant id from the activity to the fragment
+            Bundle bundle = new Bundle();
+            bundle.putStringArrayList("items", orderItems);
+            //set Fragmentclass Arguments
+            OrderSummaryFragment obj = new OrderSummaryFragment();
+            obj.setArguments(bundle);
 
-        //these lines send the restaurant id from the activity to the fragment
-        Bundle bundle=new Bundle();
-        bundle.putStringArrayList("items", orderItems);
-        //set Fragmentclass Arguments
-        OrderSummaryFragment obj=new OrderSummaryFragment();
-        obj.setArguments(bundle);
-
-        switchFragment(obj);
-
+            switchFragment(obj);
+        }
     }
 
     public void confirmation(View view){
@@ -198,27 +204,5 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new PendorStartActivityFragment());
     }
 
-    public void pendorstart(){
-        switchFragment(new PendorStartActivityFragment());
-    }
-
-    public void onTheWay()
-    {
-        Tracker gps = new Tracker(this, restLoc);
-        if(gps.canGetLocation()){
-
-        }
-        pendorstart();
-    }
-
-
-    public void onTheWay(View view)
-    {
-        Tracker gps = new Tracker(this, restLoc);
-        if(gps.canGetLocation()){
-
-        }
-        pendorstart();
-    }
 }
 

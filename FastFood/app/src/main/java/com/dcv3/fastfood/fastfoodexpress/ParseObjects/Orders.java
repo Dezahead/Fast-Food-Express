@@ -27,8 +27,10 @@ public class Orders extends ParseObject {
         put("restaurantNo", ParseObject.createWithoutData("Restaurants", property));
         put("Total", cost);
         put("restaurantName", name);
+        put("isTracking", false);
         for (int i = 0; i < menuItems.length; i++)
             add("menuItems", menuItems[i]);
 
     }
+
 }
