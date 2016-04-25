@@ -24,6 +24,7 @@ public class Orders extends ParseObject {
         String[] customs = new String[custom.size()];
         Random rand = new Random();
         int randomNumber = rand.nextInt(1000) + 1;
+        String num = Integer.toString(randomNumber);
         items.toArray(menuItems);
         custom.toArray(customs);
 
@@ -33,7 +34,7 @@ public class Orders extends ParseObject {
         put("Total", cost);
         put("restaurantName", name);
         put("isTracking", false);
-        put("orderNo", randomNumber);
+        put("orderNo", num);
 
         for (int i = 0; i < menuItems.length; i++)
             add("menuItems", menuItems[i]);
