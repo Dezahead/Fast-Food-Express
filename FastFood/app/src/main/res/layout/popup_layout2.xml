@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp" android:layout_height="100dp"
+    android:layout_width="240dp" android:layout_height="100dp"
     android:background="@color/background_floating_material_dark">
 
 
@@ -23,7 +23,7 @@
         android:text="Submit"
         android:id="@+id/submitButton"
         android:background="#4d1b1a1a"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="5dp"
         android:layout_below="@+id/customEditText"
         android:layout_alignEnd="@+id/customEditText"
         />
@@ -35,7 +35,7 @@
         android:text="Cancel"
         android:background="#4d1b1a1a"
         android:id="@+id/cancelButton"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/customEditText"
         android:layout_alignParentStart="true" />
 

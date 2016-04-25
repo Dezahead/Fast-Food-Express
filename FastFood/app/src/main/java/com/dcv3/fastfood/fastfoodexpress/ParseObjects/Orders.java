@@ -1,5 +1,6 @@
 package com.dcv3.fastfood.fastfoodexpress.ParseObjects;
 
+import com.parse.ParseACL;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -27,6 +28,7 @@ public class Orders extends ParseObject {
         String num = Integer.toString(randomNumber);
         items.toArray(menuItems);
         custom.toArray(customs);
+        String orderNumString = "Order Number " + num;
 
         put("userID", ParseObject.createWithoutData(ParseUser.class, id));
         put("restaurantNo", ParseObject.createWithoutData("Restaurants", property));
@@ -34,7 +36,11 @@ public class Orders extends ParseObject {
         put("Total", cost);
         put("restaurantName", name);
         put("isTracking", false);
-        put("orderNo", num);
+        put("orderNo", orderNumString);
+        ParseACL acl = new ParseACL();
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+        setACL(acl);
 
         for (int i = 0; i < menuItems.length; i++)
             add("menuItems", menuItems[i]);
