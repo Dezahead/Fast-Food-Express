@@ -5,6 +5,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by dezereljones on 1/16/16.
@@ -18,18 +19,27 @@ public class Orders extends ParseObject {
     }
 
     //Method saves the order to the database
-    public void setdetails(String id, ArrayList<String> items, String property, double cost, String name){
+    public void setdetails(String id, ArrayList<String> items, String property, double cost, String name, ArrayList<String> custom){
         String[] menuItems = new String[(items.size())];
+        String[] customs = new String[custom.size()];
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(1000) + 1;
         items.toArray(menuItems);
-        //put("restaurantNo", property);
-        //put("userID", id);
+        custom.toArray(customs);
+
         put("userID", ParseObject.createWithoutData(ParseUser.class, id));
         put("restaurantNo", ParseObject.createWithoutData("Restaurants", property));
+        put("restNo", property);
         put("Total", cost);
         put("restaurantName", name);
         put("isTracking", false);
+        put("orderNo", randomNumber);
+
         for (int i = 0; i < menuItems.length; i++)
             add("menuItems", menuItems[i]);
+
+        for (int i = 0; i < customs.length; i++)
+            add("Customization", customs[i]);
 
     }
 

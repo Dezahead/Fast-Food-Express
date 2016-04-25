@@ -39,6 +39,7 @@ public class CheckoutFragment extends Fragment{
     double total;
     double tax;
     ArrayList<String> menuItems;
+    ArrayList<String> customizeItems;
     DecimalFormat df = new DecimalFormat("#.##");
 
 
@@ -57,6 +58,7 @@ public class CheckoutFragment extends Fragment{
         restaurantId = getArguments().getString("restId");
         restName = getArguments().getString("restName");
         total = getArguments().getDouble("total");
+        customizeItems = getArguments().getStringArrayList("custom");
 
         //Computing order total after tax
         tax = total * .08;
@@ -107,7 +109,7 @@ public class CheckoutFragment extends Fragment{
 
     public void confirmation(){
         Orders newOrder = new Orders();
-        newOrder.setdetails(userId, menuItems, restaurantId, total, restName);
+        newOrder.setdetails(userId, menuItems, restaurantId, total, restName, customizeItems);
         orderNum = newOrder.getObjectId();
         newOrder.saveInBackground();
 

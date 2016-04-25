@@ -32,7 +32,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Create an Account"
             android:id="@+id/sendbutton"
             android:fontFamily="sans-serif-light"
             android:background="#4d1b1a1a"

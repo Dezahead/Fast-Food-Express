@@ -35,12 +35,12 @@ import com.parse.ParseObject;
 import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener, RestaurantMenuFragment.OnFoodItemSelectedListener{
+public class MainActivity extends ActionBarActivity implements SelectRestaurantFragment.OnRestSelectedListener, RestaurantMenuFragment.OnFoodItemSelectedListener, RestaurantMenuFragment.OnCustomAddedListener{
     FragmentManager fm;
     FragmentTransaction ft;
     public String userId;
     ArrayList<String> orderItems = new ArrayList<String>();
-    public String[] customization = new String[100];
+    ArrayList<String> customize = new ArrayList<String>();
     public String restaurantId;
     public ParseGeoPoint restLoc;
     double total = 0;
@@ -61,7 +61,12 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         orderItems.add(item);
         total += price;
         restLoc = new ParseGeoPoint(restLocation);
-        //Toast.makeText(this, "Location : " + restLoc, Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, customize.get(0), Toast.LENGTH_LONG).show();
+    }
+
+    public void OnCustomAdded(String custom){
+        customize.add(custom);
     }
 
     public void onRestaurantSelected(String id, String name){
@@ -128,6 +133,7 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         bundle.putString("id", userId);
         bundle.putString("restName", restName);
         bundle.putString("restId", restaurantId);
+        bundle.putStringArrayList("custom", customize);
         //set Fragmentclass Arguments
         CheckoutFragment obj=new CheckoutFragment();
         obj.setArguments(bundle);
@@ -168,9 +174,25 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         }
     }
 
+    public void orderSummary() {
+        if (orderItems.size() == 0)
+            Toast.makeText(this, "Please Select an Item", Toast.LENGTH_LONG)
+                    .show();
+        else{
+            //these lines send the restaurant id from the activity to the fragment
+            Bundle bundle = new Bundle();
+            bundle.putStringArrayList("items", orderItems);
+            //set Fragmentclass Arguments
+            OrderSummaryFragment obj = new OrderSummaryFragment();
+            obj.setArguments(bundle);
+
+            switchFragment(obj);
+        }
+    }
+
     public void confirmation(View view){
         Orders newOrder = new Orders();
-        newOrder.setdetails(userId, orderItems, restaurantId, total, restName);
+        newOrder.setdetails(userId, orderItems, restaurantId, total, restName, customize);
         newOrder.saveInBackground();
 
         switchFragment(new ConfirmationFragment());
