@@ -1,94 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:background="@drawable/bkgrnd">
 
 
-    //Background
-    <RelativeLayout
-        android:id="@+id/container"
+    //Background image to create banner
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bannerbg"
+        android:layout_marginEnd="56dp"
+        android:layout_marginTop="62dp" />
+
+    //Screen Title text
+
+    <TextView
+        android:fontFamily="sans-serif-thin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pending Orders"
+        android:id="@+id/bigcurrentorders"
+        android:textSize="50dp"
+        android:textIsSelectable="false"
+        android:textAlignment="center"
+        android:textColor="#fa040304"
+        android:layout_alignBottom="@+id/bannerbg"
+        android:layout_centerHorizontal="true" />
+
+    //Divider between sections
+    <View
+        android:layout_width="335dp"
+        android:layout_height="2dp"
+        android:background="#991b1a1a"
+        android:id="@+id/divider"
+        android:layout_below="@+id/bigcurrentorders"
+        android:layout_alignEnd="@+id/bigcurrentorders" />
+
+    //Order one text
+
+    //Customization1 text
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On my way!"
+        android:id="@+id/omwbutton"
+        android:fontFamily="sans-serif-light"
+        android:background="#4d1b1a1a"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/bigcurrentorders"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/backbutton"
+        android:fontFamily="sans-serif-light"
+        android:background="#4d1b1a1a"
+        android:clickable="true"
+        android:onClick="pendorstart"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/bigcurrentorders"
+        android:layout_marginBottom="20dp"/>
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:background="@mipmap/bkgrnd">
-
-
-        //Background image to create banner
-
-        <ImageView
+        android:layout_above="@id/backbutton"
+        android:layout_below="@id/divider"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bannerbg"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="62dp" />
-
-        //Screen Title text
-
-        <TextView
-            android:fontFamily="sans-serif-thin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pending Orders"
-            android:id="@+id/bigcurrentorders"
-            android:textSize="50dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center"
-            android:textColor="#fa040304"
-            android:layout_alignBottom="@+id/bannerbg"
-            android:layout_centerHorizontal="true" />
-
-        //Divider between sections
-        <View
-            android:layout_width="335dp"
-            android:layout_height="2dp"
-            android:background="#991b1a1a"
-            android:id="@+id/divider"
-            android:layout_below="@+id/bigcurrentorders"
-            android:layout_alignEnd="@+id/bigcurrentorders" />
-
-        //Order one text
-
-        //Customization1 text
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="On my way!"
-            android:id="@+id/omwbutton"
-            android:fontFamily="sans-serif-light"
-            android:background="#4d1b1a1a"
-            android:clickable="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/bigcurrentorders"
-            android:layout_marginBottom="20dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/backbutton"
-            android:fontFamily="sans-serif-light"
-            android:background="#4d1b1a1a"
-            android:clickable="true"
-            android:onClick="pendorstart"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/bigcurrentorders"
-            android:layout_marginBottom="20dp"/>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/backbutton"
-            android:layout_below="@id/divider"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/list"
-                android:choiceMode="singleChoice"
-                />
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+            android:id="@+id/list"
+            android:choiceMode="singleChoice"
+            />
+    </LinearLayout>
+</RelativeLayout>

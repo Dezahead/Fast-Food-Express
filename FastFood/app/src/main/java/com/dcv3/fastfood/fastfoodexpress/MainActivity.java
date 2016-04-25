@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CheckoutFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ConfirmationFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.CreateAccountFragment;
-import com.dcv3.fastfood.fastfoodexpress.Fragments.CustomizationFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.ForgotPasswordFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.LoginActivityFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.OrderSummaryFragment;
@@ -26,10 +25,8 @@ import com.dcv3.fastfood.fastfoodexpress.Fragments.PendorStartActivityFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.RestaurantMenuFragment;
 import com.dcv3.fastfood.fastfoodexpress.Fragments.SelectRestaurantFragment;
 import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Orders;
-import com.dcv3.fastfood.fastfoodexpress.ParseObjects.Tracker;
 import com.parse.ParseAnalytics;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
 
 
 import java.util.ArrayList;
@@ -154,9 +151,6 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
 
     }
 
-    public void customizeFood(){
-        switchFragment(new CustomizationFragment());
-    }
 
     public void orderSummary(View view) {
         if (orderItems.size() == 0)
@@ -198,8 +192,12 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
         switchFragment(new ConfirmationFragment());
     }
 
-    public void forgotPassword(){
+    public void forgotPassword(View view){
         switchFragment(new ForgotPasswordFragment());
+    }
+
+    public void deleteItems(int position){
+        orderItems.remove(position);
     }
 
     public void createAccount(View view){
@@ -207,8 +205,7 @@ public class MainActivity extends ActionBarActivity implements SelectRestaurantF
     }
 
 
-    public void logIn(){
-        switchFragment(new LoginActivityFragment());
+    public void logIn(){switchFragment(new LoginActivityFragment());
     }
 
     public void pending(View view){

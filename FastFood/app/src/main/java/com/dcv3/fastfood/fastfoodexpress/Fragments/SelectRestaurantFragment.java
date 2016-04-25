@@ -35,7 +35,6 @@ public class SelectRestaurantFragment extends Fragment{
     ListView listView;
     ParseQueryAdapter<ParseObject> mainAdapter;
     OnRestSelectedListener mCallback;
-    ParseGeoPoint location;
     String id;
     String name;
 
@@ -81,29 +80,7 @@ public class SelectRestaurantFragment extends Fragment{
                 //getting restaurant object id
                 id = rest.getObjectId();
                 name = rest.getString("restaurantName");
-/*
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Properties");
-                ParseObject object = ParseObject.createWithoutData("Restaurants", id);
-                query.whereEqualTo("restaurantNo", object);
 
-                query.findInBackground(new FindCallback<ParseObject>() {
-                    public void done(List<ParseObject> locList, ParseException e) {
-                        if (e == null) {
-                            ParseObject obj = locList.get(0);
-                            location = obj.getParseGeoPoint("LocationPoint");
-                            //Toast.makeText(getActivity(), "Object: " + obj, Toast.LENGTH_LONG).show();
-                        } else {
-                                Log.i("LOCATION", "Location not retrieved");
-                        }
-                    }
-                });
-
-
-                //double restLatitude = (location.getLatitude()*1E6);
-                //double restLongitude = (location.getLongitude()*1E6);
-
-                //Toast.makeText(getActivity(), "Lat: " + restLatitude, Toast.LENGTH_LONG).show();
-*/
                 // Send the event to the host activity
                 mCallback.onRestaurantSelected(id, name);
             }

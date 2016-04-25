@@ -1,77 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:fillViewport="true">
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:background="@drawable/bkgrnd"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    //Background
-    <RelativeLayout
-        android:id="@+id/container"
+    //Screen Title text
+    <TextView
+        android:fontFamily="sans-serif-thin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center">
+        android:text="Menu"
+        android:id="@+id/screentitle1"
+        android:textSize="50sp"
+        android:textIsSelectable="false"
+        android:textAlignment="center"
+        android:textColor="#fa040304"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true" />
 
-        <ImageView
-            android:src="@mipmap/bkgrnd"
-            android:scaleType="centerCrop"
-            android:layout_width="fill_parent"
-            android:layout_height= "fill_parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Add to Order"
+        android:id="@+id/addButton"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:onClick="orderSummary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@id/screentitle1"
+        android:fontFamily="sans-serif-light"
+        android:background="#4d1b1a1a"
+        />
 
-        //Screen Title text
-        <TextView
-            android:fontFamily="sans-serif-thin"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Back"
+        android:id="@+id/backButton"
+        android:clickable="true"
+        android:onClick="selectRestaurant"
+        android:fontFamily="sans-serif-light"
+        android:background="#4d1b1a1a"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/backButton"
+        android:layout_below="@id/screentitle1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/linearLayout">
+        <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menu"
-            android:id="@+id/screentitle1"
-            android:textSize="50sp"
-            android:textIsSelectable="false"
-            android:textAlignment="center"
-            android:textColor="#fa040304"
-            android:layout_marginTop="40dp"
-            android:layout_centerHorizontal="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add to Order"
-            android:id="@+id/addButton"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:onClick="orderSummary"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@id/screentitle1"
-            android:fontFamily="sans-serif-light"
-            android:background="#4d1b1a1a"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/backButton"
-            android:clickable="true"
-            android:onClick="selectRestaurant"
-            android:fontFamily="sans-serif-light"
-            android:background="#4d1b1a1a"
-            android:layout_alignTop="@+id/addButton"
-            android:layout_alignParentEnd="true" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/backButton"
-            android:layout_below="@id/screentitle1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/linearLayout">
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/list"
-                android:choiceMode="singleChoice"/>
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+            android:id="@+id/list"
+            android:choiceMode="singleChoice"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dcv3.fastfood.fastfoodexpress.MainActivity;
 import com.dcv3.fastfood.fastfoodexpress.R;
 
 import java.util.ArrayList;
@@ -48,10 +49,6 @@ public class OrderSummaryFragment extends Fragment {
         //instantiate custom adapter
         MyCustomAdapter adapter = new MyCustomAdapter(menuItems, getActivity());
 
-/*
-        final StableArrayAdapter adapter = new StableArrayAdapter(getActivity(),
-                android.R.layout.simple_list_item_1, menuItems);
-                */
         listview.setAdapter(adapter);
 
 
@@ -104,44 +101,11 @@ public class OrderSummaryFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //do something
-                    list.remove(position); //or some other task
+                    ((MainActivity)getActivity()).deleteItems(position);
                     notifyDataSetChanged();
                 }
             });
             return view;
         }
     }
-
-
-
-
-
-
-/*
-    private class StableArrayAdapter extends ArrayAdapter<String> {
-
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-        public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
-            super(context, textViewResourceId, objects);
-            for (int i = 0; i < objects.size(); ++i) {
-                mIdMap.put(objects.get(i), i);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            String item = getItem(position);
-            return mIdMap.get(item);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
-    }
-*/
-
 }
